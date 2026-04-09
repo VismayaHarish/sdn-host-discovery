@@ -1,21 +1,38 @@
-# SDN Host Discovery
+# SDN Host Discovery using Ryu and Mininet
 
-This project implements a Host Discovery Service using Ryu controller and Mininet.
+## 📌 Problem Statement
+This project implements a Host Discovery Service in Software Defined Networking (SDN) using a Ryu controller. The controller dynamically detects hosts and maintains their information.
 
-## Features
+---
+
+## 🛠 Tools Used
+- Mininet
+- Ryu Controller
+- OpenFlow 1.3
+- Ubuntu (WSL)
+
+---
+
+## ⚙️ Features
 - Detects hosts dynamically
-- Uses OpenFlow 1.3
-- Implements learning switch
+- Displays MAC address, switch ID, and port
+- Implements learning switch logic
+- Installs flow rules dynamically
 
-## Run
-1. Start controller:
-   python3 ryu/cmd/manager.py host_discovery.py
+---
 
-2. Start Mininet:
-   sudo mn --topo single,3 --controller none --switch ovs,protocols=OpenFlow13
+## 🧠 How It Works
+- Switch sends unknown packets to controller (packet_in)
+- Controller extracts MAC address from packets
+- Stores host information (MAC, switch, port)
+- Installs flow rules for efficient forwarding
 
-3. Connect:
-   sh ovs-vsctl set-controller s1 tcp:127.0.0.1:6633
+---
 
-4. Test:
-   pingall
+## ▶️ Execution Steps
+
+### 1. Start Ryu Controller
+```bash
+cd ~/ryu
+export PYTHONPATH=$PWD
+python3 ryu/cmd/manager.py host_discovery.py
