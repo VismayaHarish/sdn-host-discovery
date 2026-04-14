@@ -23,20 +23,14 @@ When a switch receives a packet that does not match any existing flow rule, it s
 ## Execution Steps
 
 ### Step 1: Start the POX Controller
-'''bash
 cd ~/pox
 ./pox.py host_discovery
-'''
 
 ### Step 2: Start Mininet with Remote Controller
-'''bash
 sudo mn --controller=remote,ip=127.0.0.1,port=6633
-'''
 
 ### Step 3: Test Connectivity
-'''bash
 pingall
-'''
 
 ## Screenshots
 - Mininet pingall output (0% packet loss)
