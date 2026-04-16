@@ -48,10 +48,6 @@ sudo mn --controller=remote,ip=127.0.0.1,port=6633
 pingall
 ```
 
-## Screenshots
-- Mininet pingall output (0% packet loss)
-- Controller logs showing host discovery
-
 ## Output
 * Successful communication between hosts (0% packet loss)
 * Hosts are detected dynamically and displayed in the controller logs
